@@ -6,9 +6,11 @@ JMAP is MIT licensed. Please see the LICENSE file in the repository for full det
 
 ## Dependencies
 
-JMAP-JS requires the [Overture](https://github.com/fastmail/overture) library's core, foundation, datastore, io, timezones, ua and localisation modules.
+To install dependencies, run `npm install`.
 
-To build the time zone data you will need a copy of the [Olsen database](https://www.iana.org/time-zones). There is a script included with Overture to convert the raw data into the required format.
+JMAP-JS requires the [Overture](https://github.com/fastmail/overture) library's core, foundation, datastore, io, timezones, ua and localisation modules. An npm installable version is provided at https://github.com/bettamaxx/overture
+
+To build the time zone data you will need a copy of the [Olsen database](https://www.iana.org/time-zones). There is a script included with Overture to convert the raw data into the required format. time-zone file is also provided in https://github.com/bettamaxx/jmap-demo-webmail
 
 ## Building
 
@@ -25,8 +27,10 @@ At some point you'll probably want to extend the classes with custom methods, or
 You can install this package by running
 
 ```
-npm install jmap-js
+npm install git+https://github.com/bettamaxx/jmap-js
 ```
+
+warning: npm install jmap-js will install seperate version maintained by jkjustjoshing. Currently only difference is a fix to source/api/Auth.js
 
 ### Authenticating
 
