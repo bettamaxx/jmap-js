@@ -2,18 +2,24 @@
   "name": "jmap-js",
   "version": "1.0.0",
   "description": "JMAP-JS is an implementation of the JMAP mail, contacts and calendars model. JMAP is a new, very efficient protocol for synchronising mail, calendars and contacts with a server. Learn more at http://jmap.io",
+  "main": "build/JMAP.js",
   "scripts": {
     "build": "node build.js source build/JMAP.js",
-    "clean": "rm -rf build"
+    "clean": "rm -rf build",
+    "preinstall": "( [ ! -e ./build ] && [ ! -e ./.AlreadyInstalled ] && [ -f ./.gitignore ] && echo \"\" > ./.AlreadyInstalled && npm install . && npm run build ) || echo \"SKIP: NON GIT SOURCE\"",
+    "postinstall": "( [ ! -f ./.gitignore ] && [ -e ./build ] && rm -rf ./src ./scripts ./.babelrc ./rollup.config.js ./tsconfig.json ./node_modules ) || echo \"SKIPDeleteMainPackage\""
+  },
+  "dependencies": {
+    "fastmail-overture": "git+https://github.com/bettamaxx/overture.git"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jkjustjoshing/jmap-js.git"
+    "url": "git+https://github.com/bettamaxx/jmap-js.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jkjustjoshing/jmap-js/issues"
+    "url": "https://github.com/bettamaxx/jmap-js/issues"
   },
-  "homepage": "https://github.com/jkjustjoshing/jmap-js#readme"
+  "homepage": "https://github.com/bettamaxx/jmap-js#readme"
 }
