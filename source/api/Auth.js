@@ -147,7 +147,7 @@ const auth = new Obj({
     connectionWillSend: function ( connection ) {
         var isAuthenticated = this.get( 'isAuthenticated' );
         if ( isAuthenticated &&
-                !this._failedConnections.contains( connection ) ) {
+                !this._failedConnections.includes( connection ) ) {
             return true;
         }
         if ( !isAuthenticated || this._isFetchingSession ) {
